@@ -1,15 +1,18 @@
 [submodule "packages/qemu"]
 	path = packages/qemu
 	url = git@github.com:ToolmanP/qemu.git
+	branch = runpv
 [submodule "buildroot"]
 	path = buildroot
 	url = git@github.com:buildroot/buildroot.git
 [submodule "packages/kernel"]
 	path = packages/kernel
 	url = git@github.com:ToolmanP/linux.git
+	branch = runpv
 [submodule "packages/gvisor"]
 	path = packages/gvisor
 	url = git@github.com:ToolmanP/gvisor.git
 [submodule "packages/virtiofsd"]
 	path = packages/virtiofsd
 	url = git@github.com:ToolmanP/virtiofsd.git
+	branch = runpv
