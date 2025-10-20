@@ -10,13 +10,13 @@ set -e
 KATA_CONF="${KATA_CONF:-/opt/kata/share/defaults/kata-containers/configuration.toml}"
 
 if [[ ! -f "${DESTDIR}/opt/kata/bin/kata-runtime" ]]; then
-        if [[ ! -f "${BUILDDIR}/kata-static.tar.xz" ]]; then
+        if [[ ! -f "${BUILDDIR}/kata-static.tar.zst" ]]; then
                 VERSION=$(curl -s https://api.github.com/repos/kata-containers/kata-containers/releases/latest |
                         grep '"tag_name":' |
                         sed -E 's/.*"([^"]+)".*/\1/')
-                curl -SL https://github.com/kata-containers/kata-containers/releases/download/"${VERSION}"/kata-static-"${VERSION}"-amd64.tar.xz -o "${BUILDDIR}/kata-static.tar.xz"
+                curl -SL https://github.com/kata-containers/kata-containers/releases/download/"${VERSION}"/kata-static-"${VERSION}"-amd64.tar.zst -o "${BUILDDIR}/kata-static.tar.zst"
         fi
-        tar -xvf "${BUILDDIR}/kata-static.tar.xz" -C "${DESTDIR}"
+        tar -xvf "${BUILDDIR}/kata-static.tar.zst" -C "${DESTDIR}"
 fi
 
 cd "${DESTDIR}"/opt/kata/bin
